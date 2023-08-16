@@ -1,0 +1,59 @@
+[property]
+gpu-id=0
+net-scale-factor=0.0039215697906911373
+model-color-format=0
+
+#offsets=123.675;116.280;103.53
+
+
+onnx-file=/home/ek/EkinStash/ds_models/obj_det_yolo/yolo7/numPlate/Day_plate_NO_nms/plt_point_day_320_230814.onnx
+model-engine-file=/home/ek/EkinStash/ds_models/obj_det_yolo/yolo7/numPlate/Day_plate_NO_nms/plt_point_day_320_230814.onnx_b1_gpu0_fp32.engine
+
+
+labelfile-path=/home/ek/EkinStash/ds_models/obj_det_yolo/yolo7/numPlate/label.txt
+
+
+batch-size=1
+network-mode=0
+network-type=3
+#1-Primary  2-Secondary
+process-mode=2
+
+num-detected-classes=80
+interval=0
+gie-unique-id=2
+
+operate-on-gie-id=1
+operate-on-class-ids=2
+
+#overlay-passthrough=1
+
+tlt-model-key=nvidia_tlt
+
+##
+#input-object-min-width: 64
+#input-object-min-height: 64
+
+#input-dims=3;192;192;4
+
+##
+
+## 0=Group Rectangles, 1=DBSCAN, 2=NMS, 3= DBSCAN+NMS Hybrid, 4 = None(No clustering)
+## MRCNN supports only cluster-mode=4; Clustering is done by the model itself
+cluster-mode=4
+# Enable tensor metadata output
+#output-tensor-meta=1
+
+output-instance-mask=1
+maintain-aspect-ratio=1
+
+#output-blob-names=stride_8;stride_16;stride_32
+parse-bbox-instance-mask-func-name = NvDsInferParseYoloPlate
+custom-lib-path=../lib/yoloplt/libnvdsinfer_custom_bbox_yolo_plt.so
+
+
+#[class-attrs-all]
+#nms-iou-threshold=0.45
+#pre-cluster-threshold=0.
+#topk=50
+

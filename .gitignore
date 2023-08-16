@@ -1,0 +1,9 @@
+
+*.bin
+*.jpg
+*.mp4
+*.o
+
+results/
+build/
+cmake-build-debug/

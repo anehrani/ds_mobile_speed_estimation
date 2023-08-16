@@ -1,0 +1,61 @@
+
+[property]
+enable=1
+#Width height used for configuration to which below configs are configured
+config-width=1920
+config-height=1080
+#osd-mode 0: Dont display any lines, rois and text
+#         1: Display only lines, rois and static text i.e. labels
+#         2: Display all info from 1 plus information about counts
+osd-mode=0
+#Set OSD font size that has to be displayed
+display-font-size=12
+
+## Per stream configuration
+[roi-filtering-stream-0]
+#enable or disable following feature
+enable=1
+## NOTE coordinates are created based on the 1920x1080
+#ROI to filter select objects, and remove from meta data
+#roi-RF=295;643;579;634;642;913;56;828
+#roi-RF=166;893;118;810;547;698;750;734;981;707;1572;791;1825;866;1633;958;774;984;264;926
+#roi-Roundabout=166;893;118;810;547;698;981;707;1572;791;1825;866;1633;958;774;984;264;926
+#roi-RF=901;1072;10;1070;10;568;1488;383;1906;404 # test003
+#roi-RF=1390;1031;456;875;1536;668;1910;688 # test004
+#roi-RF=1693;925;638;836;1236;726;1791;788 # test004 -> small area
+#roi-RF=1722;512;222;133;94;146;535;984 # istanbul case
+#roi-RF=1150;774;381;748;642;630;1012;639 # serbest bolge
+roi-RF=1;1;1920;1;1920;1080;1;1080 # tem yolu
+
+#remove objects in the ROI
+inverse-roi=0
+class-id=-1
+
+[line-crossing-stream-0]
+enable=0
+#Label;direction;lc
+#line-crossing-N-Entry=784;726;793;745;748;742;894;739
+#line-crossing-N-Exit=954;728;913;700;862;719;967;709
+#line-crossing-NE-Entry=1756;818;1638;818;1572;791;1722;833
+#line-crossing-NE-Exit=1732;857;1819;846;1722;834;1825;866
+#line-crossing-SE-Entry=1806;915;1745;904;1722;918;1785;891
+#line-crossing-SE-Exit=1640;944;1730;952;1633;958;1671;937
+#line-crossing-SV-Entry=555;987;680;962;570;960;804;982
+#line-crossing-SV-Exit=290;946;252;964;270;933;478;950
+#line-crossing-NV-Entry=80;882;155;882;154;861;163;898
+#line-crossing-NV-Exit=157;827;94;827;149;844;132;805
+
+line-crossing-N-Entry=151;138;183;162;94;146;251;137
+#line-crossing-S-Exit=835;426;1596;881;535;984;1764;471
+#line-crossing-E-Exit=555;556;168;634;224;412;474;886
+
+
+class-id=-1
+#extended when 0- only counts crossing on the configured Line
+#              1- assumes extended Line crossing counts all the crossing
+extended=0
+#LC modes supported:
+#loose   : counts all crossing without strong adherence to direction
+#balanced: Strict direction adherence expected compared to mode=loose
+#strict  : Strict direction adherence expected compared to mode=balanced
+mode=balanced
